@@ -46,11 +46,12 @@ public abstract class LootMixin extends LockableContainerBlockEntity {
         {
             if(player.getRandom().nextInt(5)==0)
             {
-                ItemStack stack = switch (player.getRandom().nextInt(3))
+                ItemStack stack = switch (player.getRandom().nextInt(4))
                 {
                     case 1 -> new ItemStack(EBM.SEALING_MAGIC_BOOK);
                     case 2 -> new ItemStack(EBM.RAISING_MAGIC_BOOK);
                     case 3 -> new ItemStack(EBM.DECONSTRUCTING_MAGIC_BOOK);
+                    case 4 -> new ItemStack(EBM.STOWING_MAGIC_BOOK);
                     default -> new ItemStack(EBM.EXCHANGE_MAGIC_BOOK);
                 };
                 stack.setCustomName(Text.empty().append(Text.of(EBM.MAGE_NAMES[player.getRandom().nextInt(EBM.MAGE_NAMES.length)]+"'s ")).append(stack.getName()));

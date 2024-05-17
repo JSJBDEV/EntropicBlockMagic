@@ -39,7 +39,7 @@ public class EBM implements ModInitializer {
 		// Proceed with mild caution.
 		Registry.register(Registries.ITEM_GROUP,new Identifier("ebm","tab"),TAB);
 		registerItems();
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("We care about approximately one side of the planar dice");
 
 	}
 
@@ -48,6 +48,7 @@ public class EBM implements ModInitializer {
 	public static final SealingMagicBook SEALING_MAGIC_BOOK  = new SealingMagicBook(new Item.Settings());
 	public static final RaisingMagicBook RAISING_MAGIC_BOOK = new RaisingMagicBook(new Item.Settings());
 	public static final DeconstructingMagicBook DECONSTRUCTING_MAGIC_BOOK = new DeconstructingMagicBook(new Item.Settings());
+	public static final StowingMagicBook STOWING_MAGIC_BOOK = new StowingMagicBook(new Item.Settings());
 	public static final BiomeCharmItem BIOME_CHARM_ITEM = new BiomeCharmItem(new Item.Settings());
 	private void registerItems()
 	{
@@ -56,6 +57,7 @@ public class EBM implements ModInitializer {
 		Registry.register(Registries.ITEM,new Identifier("ebm","sealing_magic_book"),SEALING_MAGIC_BOOK);
 		Registry.register(Registries.ITEM,new Identifier("ebm","raising_magic_book"),RAISING_MAGIC_BOOK);
 		Registry.register(Registries.ITEM,new Identifier("ebm","deconstructing_magic_book"),DECONSTRUCTING_MAGIC_BOOK);
+		Registry.register(Registries.ITEM,new Identifier("ebm","stowing_magic_book"),STOWING_MAGIC_BOOK);
 		Registry.register(Registries.ITEM,new Identifier("ebm","biome_charm"),BIOME_CHARM_ITEM);
 
 		for (int i = v; i < Registries.ITEM.size(); i++) {

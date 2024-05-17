@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "biome_charm",
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "T": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    "#T#",
+    "###"
+  ],
+  "result": {
+    "item": "ebm:biome_charm"
+  },
+  "show_notification": true
+}

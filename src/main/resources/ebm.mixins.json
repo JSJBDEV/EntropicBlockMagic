@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "ace.actually.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ace.actually.ebm.mixin.ExampleMixin",
+    "ace.actually.ebm.mixin.LootMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

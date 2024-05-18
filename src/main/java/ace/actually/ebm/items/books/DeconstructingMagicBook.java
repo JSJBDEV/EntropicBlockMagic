@@ -1,5 +1,6 @@
-package ace.actually.ebm;
+package ace.actually.ebm.items.books;
 
+import ace.actually.ebm.EBM;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -67,12 +68,12 @@ public class DeconstructingMagicBook extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        tooltip.add(Text.literal("unpolishes and unbricks things that are otherwised polished or bricked"));
-        tooltip.add(Text.literal("(also unwalls and untiles)"));
-        tooltip.add(Text.literal("Requires Low Chaotic entropy"));
+        tooltip.add(Text.translatable("text.ebm.deconstructing1"));
+        tooltip.add(Text.translatable("text.ebm.deconstructing2"));
+        tooltip.add(Text.translatable("text.ebm.requires").append(" ").append(Text.translatable("text.ebm.low_chaotic")).append(" ").append(Text.translatable("text.ebm.entropy")));
         if(stack.hasNbt())
         {
-            tooltip.add(Text.literal("Alt Requirement: "+stack.getNbt().getString("altcast")));
+            tooltip.add(Text.translatable("text.ebm.alt_requirement").append(EBM.asTranslatable(stack.getNbt().getString("altcast"))).append(" ").append(Text.translatable("text.ebm.entropy")));
         }
     }
 }

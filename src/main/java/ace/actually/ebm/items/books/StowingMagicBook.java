@@ -1,5 +1,6 @@
-package ace.actually.ebm;
+package ace.actually.ebm.items.books;
 
+import ace.actually.ebm.EBM;
 import net.minecraft.block.ChestBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -48,11 +49,11 @@ public class StowingMagicBook extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        tooltip.add(Text.literal("Throws any raw, ore, or cobble items onto the ground in front of you"));
-        tooltip.add(Text.literal("requires Medium Chaotic Entropy"));
+        tooltip.add(Text.translatable("text.ebm.stowing"));
+        tooltip.add(Text.translatable("text.ebm.requires").append(" ").append(Text.translatable("text.ebm.medium_chaotic")).append(" ").append(Text.translatable("text.ebm.entropy")));
         if(stack.hasNbt())
         {
-            tooltip.add(Text.literal("Alt Requirement: "+stack.getNbt().getString("altcast")));
+            tooltip.add(Text.translatable("text.ebm.alt_requirement").append(EBM.asTranslatable(stack.getNbt().getString("altcast"))).append(" ").append(Text.translatable("text.ebm.entropy")));
         }
     }
 }

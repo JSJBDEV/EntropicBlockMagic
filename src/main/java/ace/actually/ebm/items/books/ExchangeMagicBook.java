@@ -1,5 +1,6 @@
-package ace.actually.ebm;
+package ace.actually.ebm.items.books;
 
+import ace.actually.ebm.EBM;
 import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -64,11 +65,11 @@ public class ExchangeMagicBook extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        tooltip.add(Text.literal("Replaces the type of block you click on with the ones in your offhand"));
-        tooltip.add(Text.literal("Requires Balanced entropy"));
+        tooltip.add(Text.translatable("text.ebm.exchange"));
+        tooltip.add(Text.translatable("text.ebm.requires").append(" ").append(Text.translatable("text.ebm.balanced")).append(" ").append(Text.translatable("text.ebm.entropy")));
         if(stack.hasNbt())
         {
-            tooltip.add(Text.literal("Alt Requirement: "+stack.getNbt().getString("altcast")));
+            tooltip.add(Text.translatable("text.ebm.alt_requirement").append(EBM.asTranslatable(stack.getNbt().getString("altcast"))).append(" ").append(Text.translatable("text.ebm.entropy")));
         }
     }
 }

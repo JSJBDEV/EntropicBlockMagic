@@ -4,5 +4,27 @@
   "item.ebm.exchange_magic_book": "Magic Book of Exchange",
   "item.ebm.sealing_magic_book": "Magic Book of Sealing",
   "item.ebm.deconstructing_magic_book": "Magic Book of Deconstruction",
-  "item.ebm.stowing_magic_book": "Magic Book of Stowing"
+  "item.ebm.stowing_magic_book": "Magic Book of Stowing",
+  "item.ebm.searching_magic_book": "Magic Book of Searching",
+
+  "text.ebm.high_ordered": "High Ordered",
+  "text.ebm.medium_ordered": "Medium Ordered",
+  "text.ebm.low_ordered": "Low Ordered",
+  "text.ebm.balanced": "Balanced",
+  "text.ebm.high_chaotic": "High Chaotic",
+  "text.ebm.medium_chaotic": "Medium Chaotic",
+  "text.ebm.low_chaotic": "Low Chaotic",
+
+  "text.ebm.requires": "Requires",
+  "text.ebm.entropy": "Entropy",
+
+  "text.ebm.stowing": "Throws any raw, ore, or cobble items onto the ground in front of you",
+  "text.ebm.searching": "Allows searching for items in chests around you",
+  "text.ebm.sealing": "Puts slabs and stairs back together",
+  "text.ebm.raising": "extends structures with the block in your offhand (Like a builders wand)",
+  "text.ebm.exchange": "Replaces the type of block you click on with the type in your offhand",
+  "text.ebm.deconstructing1": "unpolishes and unbricks things that are otherwised polished or bricked",
+  "text.ebm.deconstructing2": "(also unwalls and untiles)",
+
+  "text.ebm.alt_requirement": "Alt Requirement: "
 }

@@ -1,5 +1,6 @@
-package ace.actually.ebm;
+package ace.actually.ebm.items;
 
+import ace.actually.ebm.EBM;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -28,14 +29,19 @@ public class BiomeCharmItem extends Item {
                 if(!user.getStackInHand(hand).hasNbt())
                 {
                     NbtCompound compound = new NbtCompound();
-                    compound.putString("entropy",EBM.entropyString(EBM.getEntropyAt(serverWorld,user.getBlockPos())));
+                    compound.putString("entropy", EBM.entropyString(EBM.getEntropyAt(serverWorld,user.getBlockPos())));
 
                     user.getStackInHand(hand).setNbt(compound);
                 }
             }
             else
             {
-                user.sendMessage(Text.of(EBM.entropyString(EBM.getEntropyAt(serverWorld,user.getBlockPos()))));
+                user.sendMessage(EBM.asTranslatable(
+                        EBM.entropyString(EBM.getEntropyAt(serverWorld, user.getBlockPos())))
+                        .append(" ")
+                        .append(Text.translatable("text.ebm.entropy")
+                        )
+                );
             }
 
         }
@@ -49,7 +55,7 @@ public class BiomeCharmItem extends Item {
         if(stack.hasNbt())
         {
 
-            tooltip.add(Text.literal(stack.getNbt().getString("entropy")));
+            tooltip.add(EBM.asTranslatable(stack.getNbt().getString("entropy")).append(" ").append(Text.translatable("text.ebm.entropy")));
         }
     }
 }

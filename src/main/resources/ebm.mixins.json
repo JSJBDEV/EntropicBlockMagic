@@ -3,7 +3,6 @@
   "package": "ace.actually.ebm.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ExampleMixin",
     "LootMixin"
   ],
   "injectors": {

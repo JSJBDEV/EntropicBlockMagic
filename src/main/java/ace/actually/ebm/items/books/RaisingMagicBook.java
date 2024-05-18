@@ -1,5 +1,6 @@
-package ace.actually.ebm;
+package ace.actually.ebm.items.books;
 
+import ace.actually.ebm.EBM;
 import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,7 +28,7 @@ public class RaisingMagicBook extends Item {
 
         if(context.getWorld() instanceof ServerWorld world)
         {
-            if(EBM.shouldResolve(world,context.getBlockPos(),context.getPlayer(),context.getStack(),"High Ordered"))
+            if(EBM.shouldResolve(world,context.getBlockPos(),context.getPlayer(),context.getStack(),"Medium Ordered"))
             {
                 buildInDirectionAndSearch(context.getWorld(), context.getBlockPos(), context.getPlayer(), context.getSide(), context.getWorld().getBlockState(context.getBlockPos()).getBlock());
                 return ActionResult.CONSUME;
@@ -44,7 +45,7 @@ public class RaisingMagicBook extends Item {
             {
                 if(player.getOffHandStack().getItem() instanceof BlockItem blockItem)
                 {
-                    if(!player.getOffHandStack().isEmpty())
+                    if(!player.getOffHandStack().isEmpty() && blockItem.getBlock()==world.getBlockState(pos).getBlock())
                     {
                         world.setBlockState(pos.add(side.getVector()),blockItem.getBlock().getDefaultState());
                         player.getOffHandStack().decrement(1);
@@ -65,11 +66,11 @@ public class RaisingMagicBook extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        tooltip.add(Text.literal("extends structures with the block in your offhand (Like a builders wand)"));
-        tooltip.add(Text.literal("Requires High Ordered entropy"));
+        tooltip.add(Text.translatable("text.ebm.raising"));
+        tooltip.add(Text.translatable("text.ebm.requires").append(" ").append(Text.translatable("text.ebm.medium_ordered")).append(Text.translatable("text.ebm.entropy")));
         if(stack.hasNbt())
         {
-            tooltip.add(Text.literal("Alt Requirement: "+stack.getNbt().getString("altcast")));
+            tooltip.add(Text.translatable("text.ebm.alt_requirement").append(EBM.asTranslatable(stack.getNbt().getString("altcast"))).append(" ").append(Text.translatable("text.ebm.entropy")));
         }
     }
 }

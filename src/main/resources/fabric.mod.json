@@ -17,7 +17,7 @@
 	"entrypoints": {
 		"main": [
           "ace.actually.ebm.EBM"
-		]
+		],"client": ["ace.actually.ebm.EBMClient"]
 	},
 	"mixins": [
 		"ebm.mixins.json"

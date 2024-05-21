@@ -2,14 +2,10 @@ package ace.actually.ebm;
 
 import ace.actually.ebm.items.BiomeCharmItem;
 import ace.actually.ebm.items.books.*;
-import ace.actually.ebm.screens.SearchScreen;
 import net.fabricmc.api.ModInitializer;
-
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
@@ -112,15 +108,7 @@ public class EBM implements ModInitializer {
 				}
 			});
 		});
-		ClientPlayNetworking.registerGlobalReceiver(COLLECT_PACKET,((client, handler, buf, responseSender) ->
-		{
-			List<ItemStack> stacks = new ArrayList<>();
-			int size = buf.readInt();
-			for (int i = 0; i < size; i++) {
-				stacks.add(buf.readItemStack());
-			}
-			client.execute(()-> client.setScreen(new SearchScreen(stacks)));
-		}));
+
 	}
 
 	public static int getEntropyAt(ServerWorld world, BlockPos pos)
